@@ -1,18 +1,18 @@
-# Make file for GMeter driver executable
+# Make file for Geez driver executable
 
 CC = g++
 CFLAGS = -Wall
-GMETER_OBJS = GMeter.o LSM303.o LCD.o GPIO.o 
+GEEZ_OBJS = Geez.o LSM303.o LCD.o GPIO.o 
 LCD_DRIVER_OBJS = LCD.o LCDdriver.o GPIO.o
 ACCEL_DRIVER_OBJS = LSM303.o AccelDriver.o
 
-all: $(GMETER_OBJS) $(LCD_DRIVER_OBJS) $(ACCEL_DRIVER_OBJS)
+all: $(GEEZ_OBJS) $(LCD_DRIVER_OBJS) $(ACCEL_DRIVER_OBJS)
 	make AccelDriver 
-	make GMeter 
+	make Geez 
 	make LCDdriver
 
-GMeter: $(GMETER_OBJS)
-	$(CC) $(CFLAGS) $(GMETER_OBJS) -o GMeter
+Geez: $(GEEZ_OBJS)
+	$(CC) $(CFLAGS) $(GEEZ_OBJS) -o Geez
 
 LCDdriver: $(LCD_DRIVER_OBJS)
 	$(CC) $(CFLAGS) $(LCD_DRIVER_OBJS) -o LCDdriver
@@ -29,14 +29,14 @@ LCD.o: Libraries/LCD/LCD.cpp
 GPIO.o: Libraries/GPIO/GPIO.cpp
 	$(CC) $(CFLAGS) Libraries/GPIO/GPIO.cpp -c
 
-LCDdriver.o: Driver/LCDdriver.cpp
-	$(CC) $(CFLAGS) Driver/LCDdriver.cpp -c
+LCDdriver.o: Drivers/LCDdriver.cpp
+	$(CC) $(CFLAGS) Drivers/LCDdriver.cpp -c
 
-AccelDriver.o: Driver/AccelDriver.cpp
-	$(CC) $(CFLAGS) Driver/AccelDriver.cpp -c
+AccelDriver.o: Drivers/AccelDriver.cpp
+	$(CC) $(CFLAGS) Drivers/AccelDriver.cpp -c
 
 %.c: %.h
 	touch $@
 
 clean:
-	rm *.o AccelDriver GMeter LCDdriver
+	rm *.o AccelDriver Geez LCDdriver
