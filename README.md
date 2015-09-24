@@ -1,6 +1,6 @@
-#GMeter
+#Geez
 
-##BeagleBone Black (BBB) GMeter Project
+##BeagleBoneBlack (BBB) GMeter Project
 
 The purpose of this project is to create a cape for the BBB that measure
 real-time Gforces and displays them via an onboard LCD module. This project 
