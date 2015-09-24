@@ -43,3 +43,44 @@ to allow for more GPIO ports).
 * Pin for the kill process button (note that this button should be configured to   
 be pulled-low and should set the value ot P9_23 to high when it is switched).    
     P9_23 -> Button         
+
+## Compiling the program
+A makefile is included in order to compile the files for the GMeter cape. To
+compile the entire project, run:
+
+> make
+
+This will populate the current directory with all of the associated executables
+for running the project.
+
+## Running the program
+Once everything has been wired together, run:
+
+> ./GMeter
+
+This will fork off processes for both the LCD screen and the LSM303
+accelerometer, and will establish pipes between the two of them for data
+transfer. The output of the accelerometer should be sent to the LCD for
+displaying as well.
+
+## Killing the program
+To kill the program, either hit ctrl-C or use the button associated with P9_23
+(if setup on your circuit).
+
+## Cleaning up
+To cleanup all of the files created by make, run:
+
+> make clean
+
+## Fortune
+     _____________________________________ 
+    ( HELP!!!! I'm being held prisoner in )
+    ( /usr/games/lib!                     )
+     ------------------------------------- 
+         o
+          o
+              oO)-.                       .-(Oo
+             /__  _\                     /_  __\
+             \  \(  |     ()~()         |  )/  /
+              \__|\ |    (-___-)        | /|__/
+              '  '--'    ==`-'==        '--'  '
